@@ -1,5 +1,5 @@
-class fistvalCategoryModel{
+class festivalCategoryModel{
   String? name,image;
 
-  fistvalCategoryModel({this.name,this.image});
+  festivalCategoryModel({this.name,this.image});
 }
