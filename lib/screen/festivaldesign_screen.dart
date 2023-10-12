@@ -21,7 +21,7 @@ class _FestivalDesignScreenState extends State<FestivalDesignScreen> {
   bool bold = false;
   bool italic = false;
   double sizevalue=15;
-  TextAlign txtalign = TextAlign.center;
+  Alignment txtalign = Alignment.center;
   GlobalKey globalKey = GlobalKey();
 
   @override
@@ -63,19 +63,6 @@ class _FestivalDesignScreenState extends State<FestivalDesignScreen> {
                         borderRadius: BorderRadius.circular(20),
                         color: colorbg[colorbgindex],
                       ),
-                      child: Text(
-                        "${Global.g1.nametxt.text}",
-                        textAlign: txtalign,
-                        style: TextStyle(
-                          color: colorbg[colorfontindex],
-                          fontSize: sizevalue,
-                          fontFamily: fontsList[fontstyleindex],
-                          fontWeight:
-                              bold ? FontWeight.bold : FontWeight.normal,
-                          fontStyle:
-                              italic ? FontStyle.italic : FontStyle.normal,
-                        ),
-                      ),
                     ),
                     Container(
                       margin: EdgeInsets.all(10),
@@ -89,6 +76,24 @@ class _FestivalDesignScreenState extends State<FestivalDesignScreen> {
                             "${l1[imgindex].image}",
                             fit: BoxFit.cover,
                           ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(10),
+                      height: MediaQuery.of(context).size.height * 0.50,
+                      width: double.infinity,
+                      alignment: txtalign,
+                      child: Text(
+                        "${Global.g1.nametxt.text}",
+                        style: TextStyle(
+                          color: colorbg[colorfontindex],
+                          fontSize: sizevalue,
+                          fontFamily: fontsList[fontstyleindex],
+                          fontWeight:
+                          bold ? FontWeight.bold : FontWeight.normal,
+                          fontStyle:
+                          italic ? FontStyle.italic : FontStyle.normal,
                         ),
                       ),
                     ),
@@ -163,7 +168,7 @@ class _FestivalDesignScreenState extends State<FestivalDesignScreen> {
                           IconButton(
                               onPressed: () {
                                 setState(() {
-                                  txtalign = TextAlign.left;
+                                  txtalign = Alignment.centerLeft;
                                 });
                               },
                               icon: Icon(
@@ -173,7 +178,7 @@ class _FestivalDesignScreenState extends State<FestivalDesignScreen> {
                           IconButton(
                               onPressed: () {
                                 setState(() {
-                                  txtalign = TextAlign.center;
+                                  txtalign = Alignment.center;
                                 });
                               },
                               icon: Icon(
@@ -183,13 +188,23 @@ class _FestivalDesignScreenState extends State<FestivalDesignScreen> {
                           IconButton(
                               onPressed: () {
                                 setState(() {
-                                  txtalign = TextAlign.right;
+                                  txtalign = Alignment.centerRight;
                                 });
                               },
                               icon: Icon(
                                 Icons.format_align_right,
                                 color: Colors.black,
                               )),
+                          IconButton(onPressed: (){
+                            setState(() {
+                              imgindex = 0; colorbgindex = 0; colorfontindex = 2;fontstyleindex = 0;
+                              isimageindex = true;
+                              bold = false;
+                              italic = false;
+                              sizevalue=15;
+                              txtalign = Alignment.center;
+                            });
+                          }, icon: Icon(Icons.lock_reset_rounded)),
                           IconButton(
                               onPressed: () {
                                 setState(() async {
@@ -280,7 +295,7 @@ class _FestivalDesignScreenState extends State<FestivalDesignScreen> {
                                   style: TextStyle(
                                       fontSize: 20,
                                       fontFamily: fontsList[index],
-                                      color: Colors.white),
+                                      color: Colors.black),
                                 ),
                               ));
                         },
