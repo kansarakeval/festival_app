@@ -1,5 +1,6 @@
 import 'package:festival_app/Model/festivalCategoryModel.dart';
 import 'package:festival_app/Model/festivalModel.dart';
+import 'package:flutter/cupertino.dart';
 
 class Global{
   static Global g1 = Global();
@@ -148,6 +149,8 @@ class Global{
   ];
 
   List<FestivalModel> modelList=[];
+
+  TextEditingController nametxt =TextEditingController();
 
   String? festivalname;
 
