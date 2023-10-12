@@ -1,7 +1,7 @@
-import 'package:festival_app/Model/festivalModel.dart';
+import 'package:festival_app/Model/festival_model.dart';
 import 'package:festival_app/util/global.dart';
 import 'package:flutter/material.dart';
-import '../Model/festivalCategoryModel.dart';
+import '../Model/category_model.dart';
 
 class HomeFestivalScreen extends StatefulWidget {
   const HomeFestivalScreen({super.key});
@@ -19,6 +19,7 @@ class _HomeFestivalScreenState extends State<HomeFestivalScreen> {
       Global.g1.modelList.add(q1);
     }).toList();
   }
+
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -26,15 +27,31 @@ class _HomeFestivalScreenState extends State<HomeFestivalScreen> {
             title:
                 Text("Festival Studio", style: TextStyle(color: Colors.black)),
             centerTitle: true,
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.black12,
           ),
-          body: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, mainAxisExtent: 190),
-              itemCount: Global.g1.festivalList.length,padding: EdgeInsets.all(5),
-              itemBuilder: (context, index) {
-                return festivalTile(Global.g1.festivalList[index]);
-              },)),
+          body: Stack(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/image/1.jpg"),
+                        fit: BoxFit.cover)),
+
+              ),
+              Container(
+                color: Colors.black12,
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2, mainAxisExtent: 190),
+                  itemCount: Global.g1.festivalList.length,
+                  padding: EdgeInsets.all(5),
+                  itemBuilder: (context, index) {
+                    return festivalTile(Global.g1.festivalList[index]);
+                  },
+                ),
+              ),
+            ],
+          )),
     );
   }
 
@@ -48,31 +65,34 @@ class _HomeFestivalScreenState extends State<HomeFestivalScreen> {
             children: [
               InkWell(
                 onTap: () {
-                  List<FestivalModel> l1=[];
-                  Global.g1.festivalname=f1.name;
-                  for(var x in Global.g1.modelList)
-                  {
-                    if(x.name==f1.name)
-                    {
+                  List<FestivalModel> l1 = [];
+                  Global.g1.festivalname = f1.name;
+                  for (var x in Global.g1.modelList) {
+                    if (x.name == f1.name) {
                       l1.add(x);
                     }
-
                   }
-                  Navigator.pushNamed(context, 'design',arguments: l1);
+                  Navigator.pushNamed(context, 'design', arguments: l1);
                 },
-                child: CircleAvatar(
-                  backgroundColor: Colors.transparent,
-                  radius: 70,
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.16,
+                  width: MediaQuery.of(context).size.width * 0.40,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.amber.shade50),
                   child: Image.asset(
                     "${f1.image}",
-                    height: MediaQuery.of(context).size.height*0.70,
-                    width: MediaQuery.of(context).size.width*0.70,
+                    height: MediaQuery.of(context).size.height * 0.70,
+                    width: MediaQuery.of(context).size.width * 0.70,
                     fit: BoxFit.scaleDown,
                   ),
                 ),
               ),
-
-              Text("${f1.name}",textAlign: TextAlign.center,style: TextStyle(fontSize: 19),),
+              Text(
+                "${f1.name}",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 19),
+              ),
             ],
           ),
         ),

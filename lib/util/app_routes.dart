@@ -1,4 +1,4 @@
-import 'package:festival_app/screen/festivaldesign_screen.dart';
+import 'package:festival_app/screen/festival_design_screen.dart';
 import 'package:festival_app/screen/home_festival_screen.dart';
 import 'package:festival_app/screen/splash_screen.dart';
 import 'package:flutter/cupertino.dart';

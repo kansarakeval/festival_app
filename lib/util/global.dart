@@ -1,5 +1,5 @@
-import 'package:festival_app/Model/festivalCategoryModel.dart';
-import 'package:festival_app/Model/festivalModel.dart';
+import 'package:festival_app/Model/category_model.dart';
+import 'package:festival_app/Model/festival_model.dart';
 import 'package:flutter/cupertino.dart';
 
 class Global{

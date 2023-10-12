@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'dart:ui' as ui;
-import 'package:festival_app/Model/festivalModel.dart';
+import 'package:festival_app/Model/festival_model.dart';
 import 'package:festival_app/util/app_color.dart';
 import 'package:festival_app/util/global.dart';
 import 'package:flutter/material.dart';
